@@ -24,67 +24,106 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Navbar -->
-<header class="sticky top-0 z-50 bg-[#15803D] ">
-  <nav class="mx-auto w-11/12 px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <!-- Left: Brand -->
-      <a href="#" class="text-xl font-bold text-white">
-        Green Earth</span>
-      </a>
+    <header class="sticky top-0 z-50 bg-[#15803D]">
+      <nav class="mx-auto w-11/12 px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <!-- Left: Brand -->
+          <a href="#" class="text-xl font-bold text-white"> Green Earth </a>
 
-      <!-- Center: Menu (Desktop only) -->
-      <ul class="hidden md:flex items-center gap-8">
-        <li><a href="#" class="text-sm font-medium text-white">About</a></li>
-        <li><a href="#" class="text-sm font-medium text-white">Gallery</a></li>
-        <li><a href="#" class="text-sm font-medium text-white">Plant a Tree</a></li>
-      </ul>
+          <!-- Center: Menu Desktop only -->
+          <ul class="hidden md:flex items-center gap-8">
+            <li>
+              <a href="#" class="text-sm font-medium text-white">About</a>
+            </li>
+            <li>
+              <a href="#" class="text-sm font-medium text-white">Gallery</a>
+            </li>
+            <li>
+              <a href="#" class="text-sm font-medium text-white"
+                >Plant a Tree</a
+              >
+            </li>
+          </ul>
 
-      <!-- Right: Desktop button , cart / Mobile cart and hamburger -->
-      <div class="flex items-center gap-3">
-        <!-- Cart icon -->
-        <button class="relative p-2 hover:bg-gray-100 rounded-lg">
-          <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke-width="2"/>
-            <circle cx="9" cy="21" r="1.5" fill="currentColor"/>
-            <circle cx="18" cy="21" r="1.5" fill="currentColor"/>
-          </svg>
-        </button>
+          <!-- Right: Desktop button , cart / Mobile cart and hamburger -->
+          <div class="flex items-center gap-3">
+            <!-- Cart icon -->
+            <button class="relative p-2 hover:bg-gray-100 rounded-lg">
+              <svg
+                class="h-6 w-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke-width="2" />
+                <circle cx="9" cy="21" r="1.5" fill="currentColor" />
+                <circle cx="18" cy="21" r="1.5" fill="currentColor" />
+              </svg>
+            </button>
 
-        <!-- Plant a Tree button -->
-        <a href="#"
-           class="hidden bg-[#FACC15] md:inline-flex items-center rounded-3xl px-4 py-2 text-green-700 text-sm font-semibold hover:bg-emerald-700 hover:text-white shadow-sm">
-          Plant a Tree
-        </a>
+            <!-- Plant a Tree button -->
+            <a
+              href="#"
+              class="hidden bg-[#FACC15] md:inline-flex items-center rounded-3xl px-4 py-2 text-green-700 text-sm font-semibold hover:bg-emerald-700 hover:text-white shadow-sm"
+            >
+              Plant a Tree
+            </a>
 
-        <!-- Hamburger -->
-        <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center rounded-lg p-2 hover:bg-gray-100">
-          <svg id="nav-icon" class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2"/>
-          </svg>
-        </button>
+            <!-- Hamburger -->
+            <button
+              id="nav-toggle"
+              class="md:hidden inline-flex items-center justify-center rounded-lg p-2 hover:bg-gray-100"
+            >
+              <svg
+                id="nav-icon"
+                class="h-6 w-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300"
+      >
+        <div class="px-4 pb-4 pt-2 border-t space-y-2">
+          <a
+            href="#"
+            class="block px-3 py-2 rounded-lg text-sm font-medium text-white"
+            >About</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 rounded-lg text-sm font-medium text-white"
+            >Gallery</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 rounded-lg text-sm font-medium text-white"
+            >Plant a Tree</a
+          >
+
+          <!-- Plant a Tree in mobile -->
+          <a
+            href="#"
+            class="bg-[#FACC15] rounded-3xl mt-5 px-4 py-2 text-green-700 text-sm font-semibold hover:bg-emerald-700 hover:text-white shadow-sm"
+          >
+            Plant a Tree
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300">
-    <div class="px-4 pb-4 pt-2 border-t space-y-2">
-      <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-white">About</a>
-      <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-white">Gallery</a>
-      <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-white">Plant a Tree</a>
-
-      <!-- Plant a Tree in mobile -->
-      <a href="#"
-           class=" bg-[#FACC15] rounded-3xl mt-5 px-4 py-2 text-green-700 text-sm font-semibold hover:bg-emerald-700 hover:text-white shadow-sm">
-          Plant a Tree
-        </a>
-    </div>
-  </div>
-</header>
+    </header>
 
     <!-- hero section  -->
     <section class="bg-[#CFF0DC] py-10 md:py-0">
@@ -93,17 +132,19 @@
           <img class="hidden md:block" src="./assets/hero-leaf1.png" alt="" />
         </div>
         <div class="text-center">
-          <h1 class="font-bold text-sm md:text-4xl">
+          <h1 class="font-bold text-xl md:text-4xl">
             Plant a Tree, Grow a Future
           </h1>
           <p class="text-gray-500 text-xs md:text-sm text-wrap mb-5">
             Join our mission to plant 1 million trees and make the Earth greener
             for future generations.
           </p>
-          <a href="#"
-           class=" bg-[#FACC15] md:inline-flex items-center rounded-3xl px-4 py-2 text-green-700 text-sm font-semibold hover:bg-emerald-700 hover:text-white shadow-sm">
-          Plant a Tree
-        </a>
+          <a
+            href="#"
+            class="bg-[#FACC15] md:inline-flex items-center rounded-3xl px-4 py-2 text-green-700 text-sm font-semibold hover:bg-emerald-700 hover:text-white shadow-sm"
+          >
+            Plant a Tree
+          </a>
         </div>
         <div>
           <img class="hidden md:block" src="./assets/hero-leaf2.png" alt="" />
@@ -113,22 +154,23 @@
 
     <!-- campaign section  -->
     <div class="parent flex flex-col md:flex-row w-11/12 mx-auto py-8 gap-6">
-  <!-- left categories -->
-  <div id="left" class="px-8 md:w-1/5">
-    <h1 class="font-bold text-xl md:text-2xl">Categories</h1>
-    <div id="cat-container" class="mt-4"></div>
-  </div>
+      <!-- left categories -->
+      <div id="left" class="px-8 md:w-1/5">
+        <h1 class="font-bold text-xl md:text-2xl">Categories</h1>
+        <div id="cat-container" class="mt-4"></div>
+      </div>
 
-  <!-- center cards -->
-  <div id="card-container" class="center grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 flex-1">
-    <!-- cards here -->
-      
-  </div>
+      <!-- center cards -->
+      <div
+        id="card-container"
+        class="center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1"
+      >
+        <!-- cards here -->
+      </div>
 
-  <!-- right section -->
-  <div class="right border md:w-1/5"></div>
-</div>
-
+      <!-- right section -->
+      <div class="right border md:w-1/5"></div>
+    </div>
 
     <!-- js  -->
     <script src="./script/index.js"></script>
