@@ -58,7 +58,7 @@ const displayPlants = (data) => {
   data.forEach((element) => {
     const div = document.createElement("div");
     div.innerHTML = `
-       <div class="card p-4 bg-white rounded-lg space-y-2">
+       <div class="card p-4 bg-white rounded-lg space-y-2 shadow-md">
           <img class="object-cover rounded-md h-52 w-full" src="${element.image}" alt="" />
           <h1 class="font-bold">${element.name}</h1>
           <p class="text-gray-400">
