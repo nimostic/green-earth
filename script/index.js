@@ -1,4 +1,4 @@
-const cart = []
+const cart = [];
 
 // Mobile menu toggle
 const btn = document.getElementById("nav-toggle");
@@ -62,7 +62,7 @@ const displayPlants = (data) => {
     div.innerHTML = `
        <div class="card p-4 bg-white rounded-lg space-y-2 shadow-md">
           <img class="object-cover rounded-md h-52 w-full" src="${element.image}" alt="" />
-          <h1 onclick="loadPlantsDetails(${element.id})" class="font-bold">${element.name}</h1>
+          <h1 onclick="loadPlantsDetails(${element.id})" class="font-bold title">${element.name}</h1>
           <p class="text-gray-400">
             ${element.description}
           </p>
@@ -70,9 +70,9 @@ const displayPlants = (data) => {
             <h1 class="bg-[#DCFCE7] text-[#15803D] py-1 px-3 rounded-3xl">
               ${element.category}
             </h1>
-            <h1 class="font-bold">$${element.price}</h1>
+            <h1 class="font-bold price">$${element.price}</h1>
           </div>
-          <button class="btn bg-[#15803D] text-white rounded-3xl">
+          <button data-id="${element.id}" class="btn bg-[#15803D] text-white rounded-3xl add_cart_btn">
             Add to Cart
           </button>
         </div>
@@ -132,5 +132,65 @@ const displayPlantsDetails = (data) => {
   document.getElementById("word_model").showModal();
 };
 
+// add to cart
+const toast = document.getElementById("toast");
+const toastMsg = document.getElementById("toast-msg");
 
-// add to cart 
+function showToast(message) {
+  toastMsg.innerText = message;
+  toast.classList.remove("hidden");
+  setTimeout(() => toast.classList.add("hidden"), 3000);
+}
+
+
+
+
+let totalPriceElem = document.getElementById("totalprice");
+let currentPrice = parseInt(totalPriceElem.innerText);
+
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".add_cart_btn");
+  if (!btn) return;
+  const card = btn.closest(".card");
+  const title = card.querySelector(".title").innerText;
+  const price = parseInt(
+    card.querySelector(".price").innerText.replace("$", "")
+  );
+  const id = parseInt(btn.dataset.id);
+
+  cart.push({ title, price, id }); //store korlam
+
+  if (btn) {
+    currentPrice += price;
+    totalPriceElem.innerText = currentPrice;
+     showToast(`✅ Success 🛒: You have added ${title} to your shopping cart`);
+
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+              <div class="item flex justify-between items-center bg-[#F0FDF4] p-3 rounded-md">
+                <div class="space-y-1">
+                  <h1 class="font-bold">${title}</h1>
+                  <h1 class="text-gray-500">$ <span class="price">${price}</span><i class="fa-solid fa-xmark"></i> 1</h1>
+                </div>
+                <div class="cursor-pointer p-1 rounded delete">❌</div>
+              </div>
+            `;
+    document.getElementById("cart-list").prepend(div);
+  }
+});
+
+const cartList = document.getElementById("cart-list");
+
+cartList.addEventListener("click", (e) => {
+  const clearBtn = e.target.closest(".delete");
+  const div = clearBtn.closest(".item");
+  const priceElement = div.querySelector(".price").innerText;
+  const deletedPrice = parseInt(priceElement);
+  // console.log(deletedPrice);
+  currentPrice -= deletedPrice
+  totalPriceElem.innerText = currentPrice;
+
+  // delte div 
+  div.remove(); 
+});
