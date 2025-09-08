@@ -154,25 +154,55 @@
 
     <!-- campaign section  -->
     <section class="bg-[#F0FDF4]">
-      <div class="parent flex flex-col md:flex-row w-11/12 mx-auto py-8 gap-6 ">
-      <!-- left categories -->
-      <div id="left" class="px-8 md:w-1/5">
-        <h1 class="font-bold text-xl md:text-2xl">Categories</h1>
-        <div id="cat-container" class="mt-4"></div>
-      </div>
+      <div class="parent flex flex-col md:flex-row w-11/12 mx-auto py-8 gap-6">
+        <!-- left categories -->
+        <div id="left" class="px-8 md:w-1/5">
+          <h1 class="font-bold text-xl md:text-2xl">Categories</h1>
+          <a
+            href="#"
+            id="all-trees"
+            class="hover:bg-[#15803D] text-gray hover:text-white w-full text-left px-4 py-2 rounded mb-2 plants-btn inline-block mt-4"
+            >All Trees</a
+          >
+          <div id="cat-container" class=""></div>
+        </div>
 
-      <!-- center cards -->
-      <div
-        id="card-container"
-        class="center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1"
-      >
-        <!-- cards here -->
-      </div>
+        <!-- center cards -->
+        <div
+          id="card-container"
+          class="center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1"
+        >
+          <!-- cards here -->
+        </div>
 
-      <!-- right section -->
-      <div class="right border md:w-1/5"></div>
-    </div>
+        <!-- right section -->
+        <div class="right md:w-1/5">
+          <div class="p-8 shadow-md bg-white rounded-xl min-h-screen">
+            <h1 class="font-medium text-xl md:text-2xl">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
+            
+            <div id="history-list" class="py-3">
+              <!-- wil add cart history here  -->
+               
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- modal gos here  -->
+
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="word_model" class="modal modal-middle">
+      <div class="modal-box">
+        <div id="modal_container" class="space-y-3 md:space-y-5"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <!-- js  -->
     <script src="./script/index.js"></script>

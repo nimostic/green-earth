@@ -1,3 +1,5 @@
+const cart = []
+
 // Mobile menu toggle
 const btn = document.getElementById("nav-toggle");
 const menu = document.getElementById("mobile-menu");
@@ -60,7 +62,7 @@ const displayPlants = (data) => {
     div.innerHTML = `
        <div class="card p-4 bg-white rounded-lg space-y-2 shadow-md">
           <img class="object-cover rounded-md h-52 w-full" src="${element.image}" alt="" />
-          <h1 class="font-bold">${element.name}</h1>
+          <h1 onclick="loadPlantsDetails(${element.id})" class="font-bold">${element.name}</h1>
           <p class="text-gray-400">
             ${element.description}
           </p>
@@ -78,7 +80,15 @@ const displayPlants = (data) => {
     cardContainer.appendChild(div);
   });
 };
+
 loadPlants();
+
+document.getElementById("all-trees").addEventListener("click", () => {
+  removeActive();
+  const btn = document.getElementById(`all-trees`);
+  btn.classList.add("active");
+  loadPlants();
+});
 
 // display plants by categories
 
@@ -91,3 +101,36 @@ const loadPlantsByCategories = async (id) => {
   btn.classList.add("active");
   displayPlants(details.plants);
 };
+
+// load plants details
+
+// {
+//     "id": 2,
+//     "image": "https://i.ibb.co.com/WNbbx3rn/guava-min.jpg",
+//     "name": "Guava Tree",
+//     "description": "A hardy fruit tree that grows in various climates, yielding guavas packed with Vitamin C. Its low maintenance nature makes it a favorite for home gardens.",
+//     "category": "Fruit Tree",
+//     "price": 350
+// }
+const loadPlantsDetails = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const res = await fetch(url);
+  const details = await res.json();
+  displayPlantsDetails(details.plants);
+};
+const displayPlantsDetails = (data) => {
+  const modalContainer = document.getElementById("modal_container");
+  modalContainer.innerHTML = `
+          <h1 class="font-2xl font-bold">${data.name}</h1>
+          <img class= "w-full object-cover h-48 md:h-60 rounded-md" src="${data.image}" alt="">
+          <h3>
+          <span class="font-bold">Category : </span>${data.category}</h3>
+          <h3>
+          <span class="font-bold">Price : </span>${data.price}</h3>
+          <h3><span class="font-bold">Description : </span>${data.description}</h3>
+    `;
+  document.getElementById("word_model").showModal();
+};
+
+
+// add to cart 
