@@ -1,5 +1,16 @@
 const cart = [];
 
+
+// loadin spinnner 
+// manageSpinner(true)
+const manageSpinner = (status) => {
+  if (status) {
+    document.getElementById("spinner").classList.remove("hidden");
+  } else {
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
+
 // Mobile menu toggle
 const btn = document.getElementById("nav-toggle");
 const menu = document.getElementById("mobile-menu");
@@ -48,6 +59,7 @@ loadCategories();
 // card-container
 
 const loadPlants = async () => {
+  manageSpinner(true)
   const url = "https://openapi.programming-hero.com/api/plants";
   const res = await fetch(url);
   const details = await res.json();
@@ -79,6 +91,7 @@ const displayPlants = (data) => {
     `;
     cardContainer.appendChild(div);
   });
+  manageSpinner(false);
 };
 
 loadPlants();
@@ -93,6 +106,7 @@ document.getElementById("all-trees").addEventListener("click", () => {
 // display plants by categories
 
 const loadPlantsByCategories = async (id) => {
+  manageSpinner(true);
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   const res = await fetch(url);
   const details = await res.json();
@@ -142,9 +156,6 @@ function showToast(message) {
   setTimeout(() => toast.classList.add("hidden"), 3000);
 }
 
-
-
-
 let totalPriceElem = document.getElementById("totalprice");
 let currentPrice = parseInt(totalPriceElem.innerText);
 
@@ -163,7 +174,7 @@ document.addEventListener("click", function (e) {
   if (btn) {
     currentPrice += price;
     totalPriceElem.innerText = currentPrice;
-     showToast(`✅ Success 🛒: You have added ${title} to your shopping cart`);
+    showToast(`✅ Success 🛒: You have added ${title} to your shopping cart`);
 
     const div = document.createElement("div");
 
@@ -188,9 +199,13 @@ cartList.addEventListener("click", (e) => {
   const priceElement = div.querySelector(".price").innerText;
   const deletedPrice = parseInt(priceElement);
   // console.log(deletedPrice);
-  currentPrice -= deletedPrice
+  currentPrice -= deletedPrice;
   totalPriceElem.innerText = currentPrice;
 
-  // delte div 
-  div.remove(); 
+  // delte div
+  div.remove();
 });
+
+
+
+

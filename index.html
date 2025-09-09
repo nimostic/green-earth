@@ -52,7 +52,10 @@
           <!-- Right: Desktop button , cart / Mobile cart and hamburger -->
           <div class="flex items-center gap-3">
             <!-- Cart icon -->
-            <button class="relative p-2 hover:bg-gray-100 rounded-lg">
+            <a
+              href="#target-section"
+              class="relative p-2 hover:bg-green-200 rounded-lg"
+            >
               <svg
                 class="h-6 w-6 text-gray-700"
                 fill="none"
@@ -63,7 +66,7 @@
                 <circle cx="9" cy="21" r="1.5" fill="currentColor" />
                 <circle cx="18" cy="21" r="1.5" fill="currentColor" />
               </svg>
-            </button>
+            </a>
 
             <!-- Plant a Tree button -->
             <a
@@ -124,7 +127,6 @@
         </div>
       </div>
     </header>
-
     <!-- hero section  -->
     <section class="bg-[#CFF0DC] py-10 md:py-0">
       <div class="flex justify-center items-center">
@@ -154,6 +156,10 @@
 
     <!-- campaign section  -->
     <section class="bg-[#F0FDF4]">
+      <!-- loading spinner  -->
+      <div id="spinner" class="pt-10 hidden text-center">
+        <span class="loading loading-spinner text-success"></span>
+      </div>
       <div class="parent flex flex-col md:flex-row w-11/12 mx-auto py-8 gap-6">
         <!-- left categories -->
         <div id="left" class="px-8 md:w-1/5">
@@ -170,13 +176,13 @@
         <!-- center cards -->
         <div
           id="card-container"
-          class="center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1"
+          class="center grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 flex-1"
         >
           <!-- cards here -->
         </div>
 
         <!-- right section -->
-        <div class="right md:w-1/5">
+        <div id="target-section" class="right md:w-1/5">
           <div class="p-8 shadow-md bg-white rounded-xl min-h-screen">
             <h1 class="font-medium text-xl md:text-2xl">
               Your Cart <i class="fa-solid fa-cart-shopping"></i>
@@ -192,6 +198,107 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- aboout campaign  -->
+    <section class="bg-[#F0FDF4]">
+      <div class="max-w-6xl mx-auto px-4">
+        <h1 class="text-xl md:text-4xl font-bold text-center py-10">
+          About the Campaign
+        </h1>
+        <div class="flex flex-col md:flex-row items-center gap-10 pb-24">
+          <div class="w-full md:w-1/2">
+            <img
+              class="w-full h-auto object-cover rounded-lg"
+              src="./assets/about.png"
+              alt="About Campaign"
+            />
+          </div>
+
+          <div class="w-full md:w-1/2 text-gray-600 space-y-4">
+            <p>
+              Green Earth is a global tree plantation initiative dedicated to
+              fighting climate change. Since our start, we've planted over
+              500,000 trees worldwide. By joining our campaign, you help restore
+              forests, create habitats for wildlife, and combat global warming.
+            </p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- impact section  -->
+    <section class="bg-[#CFF0DC]">
+      <div class="w-11/12 mx-auto text-center pb-24">
+        <h1 class="text-2xl md:text-4xl font-bold pt-24 pb-11">Our Impact</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div class="bg-white py-5 rounded-xl">
+            <h1 class="text-[#15803D] text-2xl md:text-4xl font-bold">500k+</h1>
+            <p class="text-gray-500">Trees planted</p>
+          </div>
+          <div class="bg-white py-5 rounded-xl">
+            <h1 class="text-[#15803D] text-2xl md:text-4xl font-bold">120k+</h1>
+            <p class="text-gray-500">Communities Involved</p>
+          </div>
+          <div class="bg-white py-5 rounded-xl">
+            <h1 class="text-[#15803D] text-2xl md:text-4xl font-bold">30k+</h1>
+            <p class="text-gray-500">Countries Reached</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECION  -->
+    <section>
+      <div class="bg-[#166534]">
+        <div class="py-24 px-4">
+          <h1
+            class="font-bold text-2xl md:text-4xl text-white text-center mb-10"
+          >
+            Plant a Tree Today
+          </h1>
+          <div
+            class="bg-[#15803D] drop-shadow-lg flex flex-col items-center justify-center p-10 max-w-xl mx-auto rounded-xl space-y-3"
+          >
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="input input-success outline-none focus-within:outline-none focus-within:ring-0 border-none w-full"
+            />
+            <input
+              type="email"
+              placeholder="Your Email Address"
+              class="input input-success outline-none focus-within:outline-none focus-within:ring-0 border-none w-full"
+            />
+            <input
+              type="text"
+              class="input border-none focus-within:outline-none w-full"
+              placeholder="Number of Trees"
+              list="trees"
+            />
+            <datalist id="trees">
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="5"></option>
+              <option value="7"></option>
+              <option value="10"></option>
+            </datalist>
+            <button
+              class="btn w-full bg-[#FACC15] text-[#15803D] border-none rounded-3xl"
+            >
+              Donate Now
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#14532D] text-center text-white py-4">
+        © 2025 Green Earth. All Rights Reserved.
       </div>
     </section>
 
@@ -212,7 +319,8 @@
     <!-- Toast message -->
     <div
       id="toast"
-      class="hidden fixed top-5 right-5 bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded shadow z-50 w-64 text-center">
+      class="hidden fixed top-5 right-5 bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded shadow z-50 w-64 text-center"
+    >
       <span id="toast-msg"></span>
     </div>
 
