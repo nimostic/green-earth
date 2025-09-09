@@ -26,5 +26,5 @@ let {name, age} = {name: "Riyad", age: 22};
 Use backticks (`).
 Support ${} for variables and multi-line strings.
 Example:
-`Hello, ${name}` 
-"Hello, " + name  
+`Hello, ${name}` // template literal  
+"Hello, " + name  // concatenation
