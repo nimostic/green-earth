@@ -1,3 +1,6 @@
+
+Live Link : https://green-earth-by-riyad.netlify.app
+
 1. Difference between var, let, and const:
 var → function-scoped, can be redeclared, old way.
 let → block-scoped, can be updated but not redeclared.
